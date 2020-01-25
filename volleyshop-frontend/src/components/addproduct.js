@@ -69,6 +69,11 @@ class AddProduct extends Component {
         return(
             <div className="container" style={{backgroundColor: '#fff'}}>
                 <div className="divide-container">Dodaj produkt</div>
+                <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400', color: '#58a724'}}>Obuwie</div>
+                <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400'}}>Odziez</div>
+                <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400'}}>Akcesoria</div>
+                <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400'}}>Suplementy</div>
+                <hr style={{marginTop: '70px'}}/>
                 <div className="page-under-construction" style={{backgroundImage: 'none', width: '70%', padding: '20px', marginLeft: 'auto', marginRight: 'auto', minHeight: '1000px' }}>
                     <br /><label for="product"><b>Nazwa:</b></label>
                     <input id="name-shoe" className="input-login" type="text" placeholder="Wprowadź nazwe produktu" name="product" required onChange={this.handleNameChanged.bind(this)}/>
