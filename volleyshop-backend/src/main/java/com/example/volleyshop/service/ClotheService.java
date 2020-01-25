@@ -1,0 +1,24 @@
+package com.example.volleyshop.service;
+
+import com.example.volleyshop.dao.ClotheDao;
+import com.example.volleyshop.model.Clothe;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ClotheService {
+
+    private final ClotheDao clotheDao;
+
+    @Autowired
+    public ClotheService(@Qualifier("postgres") ClotheDao clotheDao) {
+        this.clotheDao = clotheDao;
+    }
+
+    public List<Clothe> getShoes() {
+        return clotheDao.getClothes();
+    }
+}
