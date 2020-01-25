@@ -7,4 +7,6 @@ import java.util.List;
 public interface ShoeDao {
 
     List<Shoe> getShoes();
+
+    int addShoe(Shoe shoe);
 }

@@ -7,7 +7,7 @@ import Shoes from '../components/shoes';
 import Clothes from '../components/clothes';
 import Accessories from '../components/accessories';
 import Supplements from '../components/supplements';
-import Information from '../components/information';
+import AddProduct from '../components/addproduct';
 
 const ContentRoute = () => (
     <Switch>
@@ -17,7 +17,7 @@ const ContentRoute = () => (
         <Route path="/clothes" component={Clothes} />
         <Route path="/accessories" component={Accessories} />
         <Route path="/supplements" component={Supplements} />
-        <Route path="/information" component={Information} />
+        <Route path="/add-product" component={AddProduct} />
     </Switch>
 )
 

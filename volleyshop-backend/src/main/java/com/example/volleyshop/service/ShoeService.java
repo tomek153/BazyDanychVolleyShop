@@ -21,4 +21,6 @@ public class ShoeService {
     public List<Shoe> getShoes() {
         return shoeDao.getShoes();
     }
+
+    public int addShoe(Shoe shoe) { return shoeDao.addShoe(shoe); }
 }

@@ -47,6 +47,42 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
     }
 
     @Override
+    public int addShoe(Shoe shoe) {
+        final String sqlFirst = "SELECT name, gender, brand, description, prize, image FROM shoes WHERE name = '"+shoe.getName()+"' OR image = '"+shoe.getImage()+"'";
+
+        List<Shoe> listFind = jdbcTemplate.query(sqlFirst, (resultSet, i) -> {
+            return new Shoe(
+                    resultSet.getString("name"),
+                    resultSet.getString("gender"),
+                    resultSet.getString("brand"),
+                    resultSet.getString("description"),
+                    resultSet.getDouble("prize")+"",
+                    resultSet.getString("image")
+            );
+        });
+
+        if (listFind.isEmpty()) {
+            final String sqlSecond = "INSERT INTO shoes (name, gender, brand, description, prize, image) VALUES(" +
+                    "'"+shoe.getName()+"', " +
+                    "'"+shoe.getGender()+"', " +
+                    "'"+shoe.getBrand()+"', " +
+                    "'"+shoe.getDescription()+"', " +
+                    "'"+shoe.getPrize()+"', " +
+                    "'"+shoe.getImage()+"')"
+                    ;
+            try {
+                jdbcTemplate.execute(sqlSecond);
+                return 1;
+            } catch(Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+                return 0;
+            }
+        } else
+            return 0;
+    }
+
+    @Override
     public List<User> getUsers() {
         final String sql = "SELECT * FROM users";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
@@ -111,15 +147,14 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
 
     @Override
     public List<Shoe> getShoes() {
-        final String sql = "SELECT * FROM shoes";
+        final String sql = "SELECT name, gender, brand, description, prize, image FROM shoes";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
             return new Shoe(
-                    resultSet.getInt("id"),
                     resultSet.getString("name"),
                     resultSet.getString("gender"),
                     resultSet.getString("brand"),
                     resultSet.getString("description"),
-                    resultSet.getDouble("prize"),
+                    resultSet.getDouble("prize")+"",
                     resultSet.getString("image")
             );
         });

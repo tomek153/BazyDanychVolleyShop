@@ -77,7 +77,7 @@ class Navigation extends Component {
                         </div>
                         </div>
                         <a href="/supplements">Suplementy</a>
-                        <a href="/information">Informacje</a>
+                        <a href="/add-product">Dodaj produkt</a>
                     </div>
                     </div>
                 </div>
