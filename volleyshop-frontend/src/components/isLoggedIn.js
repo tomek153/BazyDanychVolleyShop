@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import superagent from 'superagent';
 
 function isAuthenticated() {
     const cookie = JSON.parse(localStorage.getItem('volleyshop'));
     if(cookie != null && JSON.stringify(cookie).length > 55)
-        return cookie.firstName;
+        return cookie.email;
     else
         return null
 }
@@ -21,15 +20,15 @@ class IsLoggedIn extends Component {
         if(name != null) {
             return (
                 <div>
-                    <div className="logout-button" onClick={this.logout}>Logout</div>
-                    <div className="user-info">{name}</div>
+                    <div className="logout-button-my" onClick={this.logout} style={{border: '1px solid #aaa'}}>Logout</div>
+                    <div className="user-info-my">{name}</div>
                 </div>
             )
         } else {
             return (
                 <div>
-                    <div className="sign-button signup-button">Sign Up</div>
-                    <div className="sign-button login-button"><span>Login </span></div>
+                    <div className="sign-button-my signup-button-my">Sign Up</div>
+                    <div className="sign-button-my login-button-my"><span>Login </span></div>
                 </div>
             )
         }    

@@ -42,34 +42,34 @@ function changeToLoginForm() {
     setTimeout("$('#login-modal-content').css({'opacity':'1'})", 600);
 };
 $(document).ready(function(){
-    $('.change-to-login-button').click(function(){
+    $('.change-to-login-button-my').click(function(){
         $('#login-modal-content').removeClass('animate-out-my');
         $('#signup-modal-content').removeClass('animate-in-my');
         changeToLoginForm();
     });
-    $('.change-to-signup-button').click(function(){
+    $('.change-to-signup-button-my').click(function(){
         $('#signup-modal-content').removeClass('animate-out-my');
         $('#login-modal-content').removeClass('animate-in-my');
         changeToSignupForm();
     });
-    $('.login-button').click(function(){
+    $('.login-button-my').click(function(){
         $('#signup-modal-content').css({ "display": "none", "opacity": "0" });
         $('#login-modal-content').css({"display": "block"});
         $('#id01').css({"top": "0%"});
     });
 
-    $('.cancelbtn').click(function(){
+    $('.cancelbtn-my').click(function(){
         $('#id01').css({"top": "-100%"});
         setTimeout("$('#signup-modal-content').css({ 'display': 'block', 'opacity': '1' })", 800);
     });
 
-    $('.signup-button').click(function(){
+    $('.signup-button-my').click(function(){
       $('#login-modal-content').css({ "display": "none", "opacity": "0" });
       $('#signup-modal-content').css({"display": "block"});
       $('#id01').css({"top": "0%"});
     });
 
-    $('.cancelbtn-signup').click(function(){
+    $('.cancelbtn-signup-my').click(function(){
         $('#id01').css({"top": "-100%"});
         setTimeout("$('#login-modal-content').css({ 'display': 'block', 'opacity': '1' })", 800);
     });

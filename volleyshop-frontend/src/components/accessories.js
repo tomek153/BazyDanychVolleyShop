@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Accessorie from './accessorie';
+import ContentPagination from './contentPagination';
 
 class Accessories extends Component {
 
@@ -18,10 +19,13 @@ class Accessories extends Component {
 
     render() {
         return(
-            <div className="container">
-                <div className="divide-container">Akcesoria</div>
-                <div className="page-under-construction" style={{backgroundImage: 'none', padding: '0px 20px'}}>
-                    {this.state.data.map((accessorie, index) => <Accessorie info={accessorie} index={index}/>)}
+            <div className="container-my">
+                <div className="divide-container-my">Akcesoria</div>
+                <div className="page-under-construction-my" style={{backgroundImage: 'none', padding: '0px 20px'}}>
+                    <div class="row row-cols-1 row-cols-md-3">
+                        {this.state.data.map((accessorie, index) => <Accessorie info={accessorie} index={index}/>)}
+                    </div>
+                    <ContentPagination />
                 </div>
             </div>
         )

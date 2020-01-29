@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Footer extends Component {
     render() {
         return(
-            <div className="footer">
-                <div className="container">
+            <div className="footer-my">
+                <div className="container-my">
                     <div className="col-md-3">
                         <p>Informacje</p>
                         <ul>
@@ -13,7 +13,7 @@ class Footer extends Component {
                             <li><a href="/under-costruction">Regulamin</a></li>
                             <li><a href="/under-costruction">Polityka Prywatności i cookies</a></li>
                         </ul>
-                        <span className="copy-rights">
+                        <span className="copy-rights-my">
                             Copyright &copy; 2019 by <span style={{color: "#ddd"}}>volleyshop.pl</span> - all rights reserved
                         </span>
                     </div>
@@ -30,10 +30,10 @@ class Footer extends Component {
                     <div className="col-md-3">
                         <p>Znajdz nas</p>
                         <ul>
-                            <li><a className="social-links" href="https://www.facebook.com/" target="_blank"><span className="social-icons"><i className="fa fa-facebook fa-2x"></i></span>Facebook</a></li>
-                            <li><a className="social-links" href="https://twitter.com/" target="_blank"><span className="social-icons"><i className="fa fa-twitter fa-2x"></i></span>Twitter</a></li>
-                            <li><a className="social-links" href="https://www.youtube.com/" target="_blank"><span className="social-icons"><i className="fa fa-youtube fa-2x"></i></span>YouTube</a></li>
-                            <li><a className="social-links" href="https://www.instagram.com/" target="_blank"><span className="social-icons"><i className="fa fa-instagram fa-2x"></i></span>Instagram</a></li>
+                            <li><a className="social-links-my" href="https://www.facebook.com/" target="_blank"><span className="social-icons-my"><i className="fa fa-facebook fa-2x"></i></span>Facebook</a></li>
+                            <li><a className="social-links-my" href="https://twitter.com/" target="_blank"><span className="social-icons-my"><i className="fa fa-twitter fa-2x"></i></span>Twitter</a></li>
+                            <li><a className="social-links-my" href="https://www.youtube.com/" target="_blank"><span className="social-icons-my"><i className="fa fa-youtube fa-2x"></i></span>YouTube</a></li>
+                            <li><a className="social-links-my" href="https://www.instagram.com/" target="_blank"><span className="social-icons-my"><i className="fa fa-instagram fa-2x"></i></span>Instagram</a></li>
                         </ul>
                     </div>
                 </div>

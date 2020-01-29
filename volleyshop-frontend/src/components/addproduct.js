@@ -67,9 +67,28 @@ class AddProduct extends Component {
     render() {
         console.log(this.state);
         return(
-            <div className="container" style={{backgroundColor: '#fff'}}>
-                <div className="divide-container">Dodaj produkt</div>
-                <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400', color: '#58a724'}}>Obuwie</div>
+            <div className="container-my">
+                <div className="divide-container-my">Dodaj produkt</div>
+                <div class="row">
+                    <nav class="nav nav-pills flex-column flex-sm-row">
+                        <a class="flex-sm-fill text-sm-center nav-link active" href="#">Obuwie</a>
+                        {/* <a class="flex-sm-fill text-sm-center nav-link" href="#">Odzież</a>
+                        <a class="flex-sm-fill text-sm-center nav-link" href="#">Akcesoria</a>
+                        <a class="flex-sm-fill text-sm-center nav-link" href="#">Suplementy</a> */}
+                        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Odzież</a>
+                        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Akcesoria</a>
+                        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Suplementy</a>
+                    </nav>
+                    <div class="col-9">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">1</div>
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">2</div>
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">3</div>
+                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">4</div>
+                        </div>
+                    </div>
+                </div>
+                {/* <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400', color: '#58a724'}}>Obuwie</div>
                 <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400'}}>Odziez</div>
                 <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400'}}>Akcesoria</div>
                 <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400'}}>Suplementy</div>
@@ -79,7 +98,7 @@ class AddProduct extends Component {
                     <input id="name-shoe" className="input-login" type="text" placeholder="Wprowadź nazwe produktu" name="product" required onChange={this.handleNameChanged.bind(this)}/>
                     <br /><br /><label for="gender"><b>Plec:</b></label>
                     <select id="gender-shoe" onChange={this.handleGenderChanged.bind(this)} className="input-login" type="text" name="gender" required style={{width: '100%', backgroundColor: 'none', height: '40px', background: 'none', border: '1px solid #ccc'}}>
-                        <option value="">Wybierz dla kogo przeznaczono produkt</option>
+                        <option value="">Wybierz</option>
                         <option value="Meskie">Meskie</option>
                         <option value="Damskie">Damskie</option>
                     </select>
@@ -93,7 +112,7 @@ class AddProduct extends Component {
                     <input id="image-shoe" onChange={this.handleImageChanged.bind(this)} className="input-login" type="text" placeholder="Wprowadz url(link) do zdjecia" name="image" required />
                     <br /><br />
                     <button onClick={this.addProduct.bind(this)} className="login-button-modal" type="submit" >Dodaj</button>
-                </div>
+                </div> */}
             </div>
         )
     }

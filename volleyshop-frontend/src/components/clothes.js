@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Clothe from './clothe';
+import ContentPagination from './contentPagination';
 
 class Clothes extends Component {
 
@@ -18,10 +19,13 @@ class Clothes extends Component {
 
     render() {
         return(
-            <div className="container">
-                <div className="divide-container">Odziez</div>
-                <div className="page-under-construction" style={{backgroundImage: 'none', padding: '0px 20px'}}>
-                    {this.state.data.map((clothe, index) => <Clothe info={clothe} index={index}/>)}
+            <div className="container-my">
+                <div className="divide-container-my">Odziez</div>
+                <div className="page-under-construction-my" style={{backgroundImage: 'none', padding: '0px 20px'}}>
+                    <div class="row row-cols-1 row-cols-md-3">
+                        {this.state.data.map((clothe, index) => <Clothe info={clothe} index={index}/>)}
+                    </div>
+                    <ContentPagination />
                 </div>
             </div>
         )

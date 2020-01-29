@@ -55,31 +55,30 @@ class Login extends Component {
     }
 
     render() {
-        console.log('state:', this.state);
         return(
             <div className="w3-modal-content w3-card-4" id="login-modal-content" style={{maxWidth: "600px", backgroundColor: "#fff"}}>
-                <div className="imgcontainer">
-                    <h2 className="header-login w3-card-4">Logowanie</h2>
-                    <img src={avatarImage} alt="Avatar" className="avatar"/>
+                <div className="imgcontainer-my">
+                    <h2 className="header-login-my w3-card-4">Logowanie</h2>
+                    <img src={avatarImage} alt="Avatar" className="avatar-my"/>
                 </div>
-                <div className="login-input-container">
+                <div className="login-input-container-my">
                     <label for="uname"><b>Użytkownik:</b></label>
-                    <input id="email-log-input" className="input-login" type="text" placeholder="Wprowadź mail" name="uname" required onChange={this.handleEmailChanged.bind(this)}/>
+                    <input id="email-log-input" className="input-login-my" type="text" placeholder="Wprowadź mail" name="uname" required onChange={this.handleEmailChanged.bind(this)}/>
 
                     <label for="psw"><b>Hasło:</b></label>
-                    <input id="password-log-input" className="input-login" type="password" placeholder="Wprowadź hasło" name="psw" required onChange={this.handlePasswordChanged.bind(this)}/>
+                    <input id="password-log-input" className="input-login-my" type="password" placeholder="Wprowadź hasło" name="psw" required onChange={this.handlePasswordChanged.bind(this)}/>
 
                     <label>
                         <input type="checkbox" name="remember" onClick={this.showPassword}/><span style={{fontSize: "16px"}}> Pokaż hasło</span>
                     </label>
 
-                    <button className="login-button-modal" type="submit" onClick={this.login.bind(this)}>Zaloguj</button>
+                    <button className="login-button-modal-my" type="submit" onClick={this.login.bind(this)}>Zaloguj</button>
                 </div>
-                <div className="login-input-container" style={{backgroundColor: "#ddd"}}>
-                    <button type="button" className="cancelbtn" onClick={this.clearField.bind(this)}>Anuluj</button>
-                    <span className="psw">Zapomniałeś <a href="#">hasła</a>?</span>
+                <div className="login-input-container-my" style={{backgroundColor: "#ddd"}}>
+                    <button type="button" className="cancelbtn-my" onClick={this.clearField.bind(this)}>Anuluj</button>
+                    <span className="psw-my">Zapomniałeś <a href="#">hasła</a>?</span>
                 </div>
-                <div className="change-to-button change-to-signup-button w3-card-4" onClick={this.clearField.bind(this)}>Utwórz konto <span></span></div>
+                <div className="change-to-button-my change-to-signup-button-my w3-card-4" onClick={this.clearField.bind(this)}>Utwórz konto <span></span></div>
             </div>
         )
     }

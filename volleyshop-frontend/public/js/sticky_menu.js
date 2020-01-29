@@ -1,14 +1,14 @@
 $(document).ready(function() {
-    var NavY = $('.menu').offset().top;
+    var NavY = $('.menu-my').offset().top;
     var stickyNav = function(){
         var ScrollY = $(window).scrollTop();
 
         if (ScrollY-60 > NavY) {
-            $('.menu').addClass('sticky');
-            $('.nav').css("margin-bottom", "61px");
+            $('.menu-my').addClass('sticky-my');
+            $('.nav-my').css("margin-bottom", "60px");
         } else if (ScrollY <= NavY) {
-            $('.menu').removeClass('sticky');
-            $('.nav').css("margin-bottom", "0px");
+            $('.menu-my').removeClass('sticky-my');
+            $('.nav-my').css("margin-bottom", "0px");
         }
     };
 

@@ -72,34 +72,30 @@ class Register extends Component {
         console.log('state:', this.state);
         return(
             <div className="w3-modal-content w3-card-4" id="signup-modal-content" style={{maxWidth: "700px", height: "auto"}}>
-                <div id="reg-succes-msg">Konto zostalo utworzone</div>
                 <form style={{backgroundColor: "#fff", color: "#444", fontSize: "20px", padding: "16px", marginTop: "25px"}}>
-                    <h2 className="header-login w3-card-4" style={{margin: "-16px 0px 0px -16px"}}>Rejestracja</h2>
+                    <h2 className="header-login-my w3-card-4" style={{margin: "-16px 0px 0px -16px"}}>Rejestracja</h2>
                     <p>Wypełnij formularz, aby utworzyć konto.</p>
                     <hr/>
 
                     <label for="email"><b>Użytkownik:</b></label>
-                    <input id="email-reg-input" className="input-login" type="text" placeholder="Wprowadź mail" name="email" required
+                    <input id="email-reg-input" className="input-login-my" type="text" placeholder="Wprowadź mail" name="email" required
                         value={this.state.email} onChange={this.handleEmailChanged.bind(this)}/>
-                    <div className="clearfix">
-                        <div className="input-name-divider">
+                    <div className="clearfix-my">
+                        <div className="input-name-divider-my">
                             <label for="firstName"><b>Imię:</b></label>
-                            <input id="name-reg-input" className="input-login" type="text" placeholder="Wprowadź imię" name="firstName" required
+                            <input id="name-reg-input" className="input-login-my" type="text" placeholder="Wprowadź imię" name="firstName" required
                                 value={this.state.firstName} onChange={this.handleFirstNameChanged.bind(this)}/>
                         </div>
-                        <div className="input-name-divider">
+                        <div className="input-name-divider-my">
                             <label for="lastName"><b>Nazwisko:</b></label>
-                            <input id="surname-reg-input" className="input-login" type="text" placeholder="Wprowadź nazwisko" name="lastName" required
+                            <input id="surname-reg-input" className="input-login-my" type="text" placeholder="Wprowadź nazwisko" name="lastName" required
                                 value={this.state.lastName} onChange={this.handleLastNameChanged.bind(this)}/>
                         </div>
                     </div>
 
                     <label for="password"><b>Hasło:</b></label>
-                    <input id="pass-input" className="input-login" type="password" placeholder="Wprowadź hasło" name="password" required
+                    <input id="pass-input" className="input-login-my" type="password" placeholder="Wprowadź hasło" name="password" required
                         value={this.state.password} onChange={this.handlePasswordChanged.bind(this)}/>
-
-                    {/* <label for="psw-repeat"><b>Powtórz hasło:</b></label>
-                    <input className="input-login" type="password" placeholder="Wprowadź hasło" name="psw-repeat" required/> */}
 
                     <label>
                         <input type="checkbox" name="show-passwd" style={{marginBottom: "15px", fontSize: "16px"}}
@@ -110,12 +106,12 @@ class Register extends Component {
                         <a href="#" style={{color: "dodgerblue"}}>warunki prywatność</a>.
                     </p>
 
-                    <div className="clearfix">
-                        <button type="button" className="cancelbtn-signup signup-buttons" onClick={this.clearField.bind(this)}>Anuluj</button>
-                        <button type="button" className="signupbtn signup-buttons" onClick={this.submitForm.bind(this)}>Utwórz konto</button>
+                    <div className="clearfix-my">
+                        <button type="button" className="cancelbtn-signup-my signup-buttons-my" onClick={this.clearField.bind(this)}>Anuluj</button>
+                        <button type="button" className="signupbtn-my signup-buttons-my" onClick={this.submitForm.bind(this)}>Utwórz konto</button>
                     </div>
                 </form>
-                <div className="change-to-button change-to-login-button w3-card-4" onClick={this.clearField.bind(this)}><span></span> Zaloguj sie</div>
+                <div className="change-to-button-my change-to-login-button-my w3-card-4" onClick={this.clearField.bind(this)}><span></span> Zaloguj sie</div>
             </div>
         )
     }
