@@ -64,29 +64,54 @@ class AddProduct extends Component {
         this.clearField();
     }
 
+    changeTab = (id) => {
+        // var element = document.getElementById("v-pills-"+id);
+        // var tabs = document.getElementsByClassName("shoe-tab");
+        // for(let i=0; i<tabs.length; i++) {
+        //     tabs[i].classList.remove("show", "active");
+        //     console.log(tabs[i].className);
+        // }
+        // element.classList.add("show", "active");
+    }
+
     render() {
-        console.log(this.state);
         return(
             <div className="container-my">
-                <div className="divide-container-my">Dodaj produkt</div>
-                <div class="row">
-                    <nav class="nav nav-pills flex-column flex-sm-row">
-                        <a class="flex-sm-fill text-sm-center nav-link active" href="#">Obuwie</a>
-                        {/* <a class="flex-sm-fill text-sm-center nav-link" href="#">Odzież</a>
-                        <a class="flex-sm-fill text-sm-center nav-link" href="#">Akcesoria</a>
-                        <a class="flex-sm-fill text-sm-center nav-link" href="#">Suplementy</a> */}
-                        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Odzież</a>
-                        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Akcesoria</a>
-                        <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Suplementy</a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Add Product</li>
+                    </ol>
+                </nav>
+                <div className="row row-my">
+                    <nav className="nav-add-product nav nav-pills flex-column flex-sm-row">
+                        <a className="flex-sm-fill text-sm-center nav-link active" name="shoe">Obuwie</a>
+                        <a className="flex-sm-fill text-sm-center nav-link" name="clothe">Odzież</a>
+                        <a className="flex-sm-fill text-sm-center nav-link" name="accessorie">Akcesoria</a>
+                        <a className="flex-sm-fill text-sm-center nav-link" name="suplement">Suplementy</a>
+                    </nav>
+                    <div class="col-9">
+                        <div class="tab-content-add-product tab-content" id="v-pills-tabContent">
+                            <div className="shoe-tab tab-pane fade show active" id="v-pills-shoe" role="tabpanel" aria-labelledby="v-pills-shoe-tab">1</div>
+                            <div className="shoe-tab tab-pane fade" id="v-pills-clothe" role="tabpanel" aria-labelledby="v-pills-clothe-tab">2</div>
+                            <div className="shoe-tab tab-pane fade" id="v-pills-accessorie" role="tabpanel" aria-labelledby="v-pills-accessorie-tab">3</div>
+                            <div className="shoe-tab tab-pane fade" id="v-pills-suplement" role="tabpanel" aria-labelledby="v-pills-suplement-tab">4</div>
+                        </div>
+                    </div>
+                    {/* <nav className="nav nav-pills flex-column flex-sm-row">
+                        <a className="flex-sm-fill text-sm-center nav-link active">Obuwie</a>
+                        <a onClick={() => this.changeTab("clothe")} class="flex-sm-fill text-sm-center nav-link" tabindex="-1" aria-disabled="true">Odzież</a>
+                        <a className="flex-sm-fill text-sm-center nav-link" tabindex="-1" aria-disabled="true">Akcesoria</a>
+                        <a className="flex-sm-fill text-sm-center nav-link" tabindex="-1" aria-disabled="true">Suplementy</a>
                     </nav>
                     <div class="col-9">
                         <div class="tab-content" id="v-pills-tabContent">
-                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">1</div>
-                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">2</div>
-                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">3</div>
-                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">4</div>
+                            <div className="shoe-tab tab-pane fade show active" id="v-pills-shoe" role="tabpanel" aria-labelledby="v-pills-shoe-tab">1</div>
+                            <div className="shoe-tab tab-pane fade" id="v-pills-clothe" role="tabpanel" aria-labelledby="v-pills-clothe-tab">2</div>
+                            <div className="shoe-tab tab-pane fade" id="v-pills-accessorie" role="tabpanel" aria-labelledby="v-pills-accessorie-tab">3</div>
+                            <div className="shoe-tab tab-pane fade" id="v-pills-suplement" role="tabpanel" aria-labelledby="v-pills-suplement-tab">4</div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 {/* <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400', color: '#58a724'}}>Obuwie</div>
                 <div style={{marginLeft: '50px', float: "left", fontSize: '24px', fontWeight: '400'}}>Odziez</div>

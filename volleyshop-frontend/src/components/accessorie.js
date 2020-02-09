@@ -14,9 +14,7 @@ class Accessorie extends Component {
         return (
             <div className="col mb-4" style={{width: '33%', float: 'left',}}>
                 <div className="card" onClick={() => this.showDetail(this.props.index)}>
-                    <div className="card-image-cont">
-                        <img src={this.props.info.image} className="card-img-top"/>
-                    </div>
+                <div className="card-image-cont" style={{backgroundImage: 'url('+this.props.info.image+')'}}></div>
                     <div className="card-body">
                         <h5 className="card-title">{this.props.info.name}</h5>
                         <p className="card-text">{this.props.info.brand}, {this.props.info.gender}</p>

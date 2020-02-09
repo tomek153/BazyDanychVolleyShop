@@ -36,7 +36,7 @@ class Navigation extends Component {
                     <div style={{marginLeft: "auto", marginRight: "auto", maxWidth: "1043px", height: "60px"}}>
                         <a href="/">Home</a>
                         <div className="subnav-my">
-                        <button className="subnav-btn-my"><a className="a-navigation-my" href="/shoes">Obuwie<i className="fa fa-caret-down"></i></a></button>
+                        <a className="a-navigation-my" href="/shoes"><button className="subnav-btn-my">Obuwie<i className="fa fa-caret-down"></i></button></a>
                         <div className="subnav-content-my">
                             <div className="subnav-container-my">
                             <a href="/shoes">Męskie</a>
@@ -46,7 +46,7 @@ class Navigation extends Component {
                         </div>
                         </div>
                         <div className="subnav-my">
-                        <button className="subnav-btn-my"><a className="a-navigation-my" href="/clothes">Odzież<i className="fa fa-caret-down"></i></a></button>
+                        <a className="a-navigation-my" href="/clothes"><button className="subnav-btn-my">Odzież<i className="fa fa-caret-down"></i></button></a>
                         <div className="subnav-content-my">
                             <div className="subnav-container-my">
                             <a href="/clothes">Męska</a>
@@ -55,7 +55,7 @@ class Navigation extends Component {
                         </div>
                         </div>
                         <div className="subnav-my">
-                        <button className="subnav-btn-my"><a className="a-navigation-my" href="/accessories">Akcesoria<i className="fa fa-caret-down"></i></a></button>
+                        <a className="a-navigation-my" href="/accessories"><button className="subnav-btn-my">Akcesoria<i className="fa fa-caret-down"></i></button></a>
                         <div className="subnav-content-my">
                             <div className="subnav-container-my">
                             <a href="/accessories">Piłki</a>

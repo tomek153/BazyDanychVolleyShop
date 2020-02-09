@@ -156,7 +156,7 @@ body {
     margin: 0;
     text-transform: uppercase;
 }
-.navbar-my a:hover, .subnav-my:hover .subnav-btn-my {
+.navbar-my a:hover, .subnav-my:hover {
     background-color: #368502;
     cursor: pointer;
     transition: background .5s;
@@ -209,9 +209,10 @@ body {
     margin: 0;
     width: 100%;
     background-image: url("../img/background-image.png");
-    background-position: center;
+    background-position: center 150px;
     background-repeat: no-repeat;
-    background-size: 110%;
+    background-size: initial;
+    background-attachment: local;
 }
 .content-container-my {
     width: 100%;
@@ -292,6 +293,7 @@ span.copy-rights-my {
 .card {
     transition: ease-in-out .5s;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .card:hover {
@@ -313,14 +315,14 @@ span.copy-rights-my {
     padding: 30px;
     transition: ease-in-out .5s;
     overflow: hidden;
+    height: 360px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 260px;
 }
 
-.card-img-top {
-    transition: ease-in-out .5s;
-}
-
-.card:hover .card-img-top {
-    transform: scale(1.1);
+.card:hover .card-image-cont {
+    transform: scale(1.15);
 }
 
 .author-nav-my {
@@ -419,6 +421,7 @@ span.copy-rights-my {
     box-shadow: 0px 0 5px 1px rgba(0,0,0,0.75);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: auto 400px;
 }
 
 .specyfics-product-info-my {
@@ -487,4 +490,18 @@ span.copy-rights-my {
 .star {
     font-size: 25px;
     color: rgba(255, 217, 0, 0.671);
+}
+
+nav.nav-add-product a.active {
+    background-color: #58a724!important;
+}
+
+nav.nav-add-product a {
+    background-color: rgba(0,0,0,.125);
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.nav-add-product a:hover {
+    cursor: pointer;
 }

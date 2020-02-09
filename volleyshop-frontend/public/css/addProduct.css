@@ -1,0 +1,7 @@
+.row-my {
+    display: block;
+    margin: 0;
+    background-color: #fff;
+    padding: 30px;
+    min-height: 600px;
+}

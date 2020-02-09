@@ -1,4 +1,5 @@
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
+
     var NavY = $('.menu-my').offset().top;
     var stickyNav = function(){
         var ScrollY = $(window).scrollTop();
