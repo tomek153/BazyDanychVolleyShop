@@ -1,0 +1,3 @@
+CREATE USER volleyshop WITH ENCRYPTED PASSWORD 'VolleyShop123!';
+ALTER USER volleyshop WITH SUPERUSER;
+GRANT ALL PRIVILEGES ON DATABASE "volleyshop" to volleyshop;
