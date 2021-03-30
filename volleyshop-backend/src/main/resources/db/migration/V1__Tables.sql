@@ -51,3 +51,10 @@ CREATE TABLE IF NOT EXISTS supplements (
     type VARCHAR(60),
     image VARCHAR
 );
+
+CREATE TABLE IF NOT EXISTS brands (
+    brand VARCHAR(60) NOT NULL
+);
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS pgcrypto;

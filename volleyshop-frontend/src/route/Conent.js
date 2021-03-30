@@ -15,21 +15,21 @@ const ContentRoute = () => (
         <Route path="/under-costruction" component={UnderConstruction} />
         
         <Route exact path="/obuwie"><Shoes filter="all"/></Route>
-        <Route exact path="/obuwie-meskie"><Shoes filter="mens"/></Route>
-        <Route exact path="/obuwie-damskie"><Shoes filter="womens"/></Route>
+        <Route exact path="/obuwie-meskie"><Shoes filter="men"/></Route>
+        <Route exact path="/obuwie-damskie"><Shoes filter="women"/></Route>
         <Route exact path="/obuwie-junior"><Shoes filter="junior"/></Route>
 
         <Route exact path="/odziez"><Clothes filter="all"/></Route>
-        <Route exact path="/odziez-meska"><Clothes filter="mens"/></Route>
-        <Route exact path="/odziez-damska"><Clothes filter="womens"/></Route>
+        <Route exact path="/odziez-meska"><Clothes filter="men"/></Route>
+        <Route exact path="/odziez-damska"><Clothes filter="women"/></Route>
 
         <Route path="/akcesoria"><Accessories filter="all"/></Route>
         <Route path="/akcesoria-pilki"><Accessories filter="balls"/></Route>
         <Route path="/akcesoria-plecaki-i-torby"><Accessories filter="bags"/></Route>
-        <Route path="/akcesoria-nakolanniki"><Accessories filter="knee-pads"/></Route>
+        <Route path="/akcesoria-nakolanniki"><Accessories filter="knee_pads"/></Route>
         <Route path="/akcesoria-rekawki-siatkarskie"><Accessories filter="sleeves"/></Route>
         <Route path="/akcesoria-skarpetki"><Accessories filter="socks"/></Route>
-        <Route path="/akcesoria-sprzet-do-cwiczen"><Accessories filter="workout"/></Route>
+        <Route path="/akcesoria-sprzet-do-cwiczen"><Accessories filter="equipment"/></Route>
         <Route path="/akcesoria-inne"><Accessories filter="other"/></Route>
 
 

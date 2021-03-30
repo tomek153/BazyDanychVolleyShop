@@ -16,15 +16,15 @@ class Clothes extends Component {
                     console.log(data);
                     this.setState({ data })
                 })
-        } else if (this.props.filter == "mens") {
-            fetch('http://localhost:8080/api/clothes/mens')
+        } else if (this.props.filter == "men") {
+            fetch('http://localhost:8080/api/clothes/men')
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
                     this.setState({ data })
                 })
-        } else if (this.props.filter == "womens") {
-            fetch('http://localhost:8080/api/clothes/womens')
+        } else if (this.props.filter == "women") {
+            fetch('http://localhost:8080/api/clothes/women')
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);

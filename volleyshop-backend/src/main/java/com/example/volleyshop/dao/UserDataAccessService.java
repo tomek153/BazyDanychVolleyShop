@@ -163,17 +163,14 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
 
     @Override
     public List<Shoe> getShoesFromFilters(String filter) {
-        String view = "";
+        String view = "shoes_";
 
-        if (filter.equals("mens")) {
-            view = "mensShoes";
-        } else if (filter.equals("womens")) {
-            view = "womensShoes";
-        } else if (filter.equals("juniors")) {
-            view = "juniorsShoes";
-        }
+        if (filter.equals("men") || filter.equals("women") || filter.equals("junior")) {
+            view += filter;
+        } else
+            return null;
 
-        final  String sql = "SELECT name, gender, brand, description, prize, image FROM " + view;
+        final String sql = "SELECT * FROM " + view;
 
         try {
             return jdbcTemplate.query(sql, (resultSet, i) -> {
@@ -193,10 +190,9 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
 
     @Override
     public List<Clothe> getClothes() {
-        final String sql = "SELECT * FROM clothes";
+        final String sql = "SELECT name, gender, brand, description, prize, type, image FROM clothes";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
             return new Clothe(
-                    resultSet.getInt("id"),
                     resultSet.getString("name"),
                     resultSet.getString("gender"),
                     resultSet.getString("brand"),
@@ -210,20 +206,18 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
 
     @Override
     public List<Clothe> getClothesFromFilters(String filter) {
-        String view = "";
+        String view = "clothes_";
 
-        if (filter.equals("mens")) {
-            view = "mensClothes";
-        } else if (filter.equals("womens")) {
-            view = "womensClothes";
-        }
+        if (filter.equals("men") || filter.equals("women")) {
+            view += filter;
+        } else
+            return null;
 
         final  String sql = "SELECT * FROM " + view;
 
         try {
             return jdbcTemplate.query(sql, (resultSet, i) -> {
                 return new Clothe(
-                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("gender"),
                         resultSet.getString("brand"),
@@ -243,7 +237,6 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
         final String sql = "SELECT * FROM accessories";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
             return new Accesories(
-                    resultSet.getInt("id"),
                     resultSet.getString("name"),
                     resultSet.getString("gender"),
                     resultSet.getString("brand"),
@@ -257,22 +250,17 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
 
     @Override
     public List<Accesories> getAccessoriesFromFilters(String filter) {
-        String view = "";
+        String view = "accessories_";
 
-        if (filter.equals("balls")) {
-            view = "ballsAccessoreis";
-        } else if (filter.equals("bags")) {
-            view = "bagsAccessoreis";
-        } else if (filter.equals("knee-pads")) {
-            view = "kneepadsAccessoreis";
-        } else if (filter.equals("sleeves")) {
-            view = "sleevesAccessoreis";
-        } else if (filter.equals("socks")) {
-            view = "socksAccessoreis";
-        } else if (filter.equals("workout")) {
-            view = "workoutAccessoreis";
-        } else if (filter.equals("other")) {
-            view = "otherAccessoreis";
+        if (filter.equals("balls") ||
+            filter.equals("bags") ||
+            filter.equals("knee_pads") ||
+            filter.equals("sleeves") ||
+            filter.equals("socks") ||
+            filter.equals("equipment") ||
+            filter.equals("other")) {
+
+            view += filter;
         }
 
         final  String sql = "SELECT * FROM " + view;
@@ -280,7 +268,6 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
         try {
             return jdbcTemplate.query(sql, (resultSet, i) -> {
                 return new Accesories(
-                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("gender"),
                         resultSet.getString("brand"),

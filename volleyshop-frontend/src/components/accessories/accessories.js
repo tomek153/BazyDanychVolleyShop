@@ -30,8 +30,8 @@ class Accessories extends Component {
                     console.log(data);
                     this.setState({ data })
                 })
-        } else if (this.props.filter == "knee-pads") {
-            fetch('http://localhost:8080/api/accessories/knee-pads')
+        } else if (this.props.filter == "knee_pads") {
+            fetch('http://localhost:8080/api/accessories/knee_pads')
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
@@ -51,8 +51,8 @@ class Accessories extends Component {
                     console.log(data);
                     this.setState({ data })
                 })
-        } else if (this.props.filter == "workout") {
-            fetch('http://localhost:8080/api/accessories/workout')
+        } else if (this.props.filter == "equipment") {
+            fetch('http://localhost:8080/api/accessories/equipment')
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);

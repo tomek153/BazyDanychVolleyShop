@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotBlank;
 
 public class Accesories {
-
-    private final int id;
     @NotBlank
     private final String name;
     @NotBlank
@@ -22,15 +20,13 @@ public class Accesories {
     @NotBlank
     private final String image;
 
-    public Accesories (@JsonProperty("id") int id,
-                   @JsonProperty("name") String name,
-                   @JsonProperty("gender") String gender,
-                   @JsonProperty("brand") String brand,
-                   @JsonProperty("description") String description,
-                   @JsonProperty("prize") double prize,
-                   @JsonProperty("type") String type,
-                   @JsonProperty("image") String image) {
-        this.id = id;
+    public Accesories (@JsonProperty("name") String name,
+                       @JsonProperty("gender") String gender,
+                       @JsonProperty("brand") String brand,
+                       @JsonProperty("description") String description,
+                       @JsonProperty("prize") double prize,
+                       @JsonProperty("type") String type,
+                       @JsonProperty("image") String image) {
         this.name = name;
         this.gender = gender;
         this.brand = brand;
@@ -38,10 +34,6 @@ public class Accesories {
         this.prize = prize;
         this.type = type;
         this.image = image;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getName() {

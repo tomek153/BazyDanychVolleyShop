@@ -16,22 +16,22 @@ class Shoes extends Component {
                 console.log(data);
                 this.setState({ data })
             })
-        } else if (this.props.filter == "mens") {
-            fetch('http://localhost:8080/api/shoes/mens')
+        } else if (this.props.filter == "men") {
+            fetch('http://localhost:8080/api/shoes/men')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 this.setState({ data })
             })
-        } else if (this.props.filter == "womens") {
-            fetch('http://localhost:8080/api/shoes/womens')
+        } else if (this.props.filter == "women") {
+            fetch('http://localhost:8080/api/shoes/women')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 this.setState({ data })
             })
         } else if (this.props.filter == "junior") {
-            fetch('http://localhost:8080/api/shoes/juniors')
+            fetch('http://localhost:8080/api/shoes/junior')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -50,19 +50,19 @@ class Shoes extends Component {
                                 <li className="breadcrumb-item"><a href="/">Home</a></li>
                                 <li className="breadcrumb-item active">Obuwie</li>
                             </ol>
-        else if (this.props.filter == "mens")
+        else if (this.props.filter == "men")
         breadCrumb =    <ol className="breadcrumb">
                             <li className="breadcrumb-item"><a href="/">Home</a></li>
                             <li className="breadcrumb-item"><a href="/obuwie">Obuwie</a></li>
                             <li className="breadcrumb-item active">Męskie</li>
                         </ol>
-        else if (this.props.filter == "womens")
+        else if (this.props.filter == "women")
         breadCrumb =    <ol className="breadcrumb">
                             <li className="breadcrumb-item"><a href="/">Home</a></li>
                             <li className="breadcrumb-item"><a href="/obuwie">Obuwie</a></li>
                             <li className="breadcrumb-item active">Damskie</li>
                         </ol>
-        else if (this.props.filter == "juniors")
+        else if (this.props.filter == "junior")
         breadCrumb =    <ol className="breadcrumb">
                             <li className="breadcrumb-item"><a href="/">Home</a></li>
                             <li className="breadcrumb-item"><a href="/obuwie">Obuwie</a></li>
