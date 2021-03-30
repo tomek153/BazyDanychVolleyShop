@@ -2,6 +2,7 @@ package com.example.volleyshop.dao;
 
 import com.example.volleyshop.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -161,6 +162,36 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
     }
 
     @Override
+    public List<Shoe> getShoesFromFilters(String filter) {
+        String view = "";
+
+        if (filter.equals("mens")) {
+            view = "mensShoes";
+        } else if (filter.equals("womens")) {
+            view = "womensShoes";
+        } else if (filter.equals("juniors")) {
+            view = "juniorsShoes";
+        }
+
+        final  String sql = "SELECT name, gender, brand, description, prize, image FROM " + view;
+
+        try {
+            return jdbcTemplate.query(sql, (resultSet, i) -> {
+                return new Shoe(
+                        resultSet.getString("name"),
+                        resultSet.getString("gender"),
+                        resultSet.getString("brand"),
+                        resultSet.getString("description"),
+                        resultSet.getDouble("prize")+"",
+                        resultSet.getString("image")
+                );
+            });
+        } catch (BadSqlGrammarException bsge) {
+            return null;
+        }
+    }
+
+    @Override
     public List<Clothe> getClothes() {
         final String sql = "SELECT * FROM clothes";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
@@ -178,6 +209,36 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
     }
 
     @Override
+    public List<Clothe> getClothesFromFilters(String filter) {
+        String view = "";
+
+        if (filter.equals("mens")) {
+            view = "mensClothes";
+        } else if (filter.equals("womens")) {
+            view = "womensClothes";
+        }
+
+        final  String sql = "SELECT * FROM " + view;
+
+        try {
+            return jdbcTemplate.query(sql, (resultSet, i) -> {
+                return new Clothe(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("gender"),
+                        resultSet.getString("brand"),
+                        resultSet.getString("description"),
+                        resultSet.getDouble("prize"),
+                        resultSet.getString("type"),
+                        resultSet.getString("image")
+                );
+            });
+        } catch (BadSqlGrammarException bsge) {
+            return null;
+        }
+    }
+
+    @Override
     public List<Accesories> getAccessories() {
         final String sql = "SELECT * FROM accessories";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
@@ -192,6 +253,46 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
                     resultSet.getString("image")
             );
         });
+    }
+
+    @Override
+    public List<Accesories> getAccessoriesFromFilters(String filter) {
+        String view = "";
+
+        if (filter.equals("balls")) {
+            view = "ballsAccessoreis";
+        } else if (filter.equals("bags")) {
+            view = "bagsAccessoreis";
+        } else if (filter.equals("knee-pads")) {
+            view = "kneepadsAccessoreis";
+        } else if (filter.equals("sleeves")) {
+            view = "sleevesAccessoreis";
+        } else if (filter.equals("socks")) {
+            view = "socksAccessoreis";
+        } else if (filter.equals("workout")) {
+            view = "workoutAccessoreis";
+        } else if (filter.equals("other")) {
+            view = "otherAccessoreis";
+        }
+
+        final  String sql = "SELECT * FROM " + view;
+
+        try {
+            return jdbcTemplate.query(sql, (resultSet, i) -> {
+                return new Accesories(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("gender"),
+                        resultSet.getString("brand"),
+                        resultSet.getString("description"),
+                        resultSet.getDouble("prize"),
+                        resultSet.getString("type"),
+                        resultSet.getString("image")
+                );
+            });
+        } catch (BadSqlGrammarException bsge) {
+            return null;
+        }
     }
 
     @Override

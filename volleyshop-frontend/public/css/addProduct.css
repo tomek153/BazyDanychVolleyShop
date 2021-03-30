@@ -5,3 +5,23 @@
     padding: 30px;
     min-height: 600px;
 }
+
+.add-item-container {
+    background-color: #fff;
+    padding: 30px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+    border-top: none;
+}
+
+.image-link-alert {
+    color: #de473c;
+    font-size: 15px;
+    margin-left: 8px;
+    float: right;
+    display: none;
+}
+
+.fade.tab-pane.active.show {
+    transition: ease-in-out 0.6s;
+}

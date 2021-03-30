@@ -21,4 +21,8 @@ public class AccessoriesService {
     public List<Accesories> getAccessories() {
         return accessoriesDao.getAccessories();
     }
+
+    public List<Accesories> getAccessoriesFromFilters(String filter) {
+        return accessoriesDao.getAccessoriesFromFilters(filter);
+    }
 }

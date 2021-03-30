@@ -36,35 +36,35 @@ class Navigation extends Component {
                     <div style={{marginLeft: "auto", marginRight: "auto", maxWidth: "1043px", height: "60px"}}>
                         <a href="/">Home</a>
                         <div className="subnav-my">
-                        <a className="a-navigation-my" href="/shoes"><button className="subnav-btn-my">Obuwie<i className="fa fa-caret-down"></i></button></a>
+                        <a className="a-navigation-my" href="/obuwie"><button className="subnav-btn-my">Obuwie<i className="fa fa-caret-down"></i></button></a>
                         <div className="subnav-content-my">
                             <div className="subnav-container-my">
-                            <a href="/shoes">Męskie</a>
-                            <a href="/shoes">Damskie</a>
-                            <a href="/shoes">Junior</a>
+                            <a href="/obuwie-meskie">Męskie</a>
+                            <a href="/obuwie-damskie">Damskie</a>
+                            <a href="/obuwie-junior">Junior</a>
                             </div>
                         </div>
                         </div>
                         <div className="subnav-my">
-                        <a className="a-navigation-my" href="/clothes"><button className="subnav-btn-my">Odzież<i className="fa fa-caret-down"></i></button></a>
+                        <a className="a-navigation-my" href="/odziez"><button className="subnav-btn-my">Odzież<i className="fa fa-caret-down"></i></button></a>
                         <div className="subnav-content-my">
                             <div className="subnav-container-my">
-                            <a href="/clothes">Męska</a>
-                            <a href="/clothes">Damska</a>
+                            <a href="/odziez-meska">Męska</a>
+                            <a href="/odziez-damska">Damska</a>
                             </div>
                         </div>
                         </div>
                         <div className="subnav-my">
-                        <a className="a-navigation-my" href="/accessories"><button className="subnav-btn-my">Akcesoria<i className="fa fa-caret-down"></i></button></a>
+                        <a className="a-navigation-my" href="/akcesoria"><button className="subnav-btn-my">Akcesoria<i className="fa fa-caret-down"></i></button></a>
                         <div className="subnav-content-my">
                             <div className="subnav-container-my">
-                            <a href="/accessories">Piłki</a>
-                            <a href="/accessories">Plecaki i torby</a>
-                            <a href="/accessories">Nakolanniki</a>
-                            <a href="/accessories">Rękawki siatkarskie</a>
-                            <a href="/accessories">Skarpetki</a>
-                            <a href="/accessories">Sprzęt do ćwiczen</a>
-                            <a href="/accessories">Suplementy</a>
+                            <a href="/akcesoria-pilki">Piłki</a>
+                            <a href="/akcesoria-plecaki-i-torby">Plecaki i torby</a>
+                            <a href="/akcesoria-nakolanniki">Nakolanniki</a>
+                            <a href="/akcesoria-rekawki-siatkarskie">Rękawki siatkarskie</a>
+                            <a href="/akcesoria-skarpetki">Skarpetki</a>
+                            <a href="/akcesoria-sprzet-do-cwiczen">Sprzęt do ćwiczen</a>
+                            <a href="/akcesoria-inne">Inne</a>
                             </div>
                         </div>
                         </div>

@@ -77,23 +77,23 @@ class Register extends Component {
                     <p>Wypełnij formularz, aby utworzyć konto.</p>
                     <hr/>
 
-                    <label for="email"><b>Użytkownik:</b></label>
+                    <label htmlFor="email"><b>Użytkownik:</b></label>
                     <input id="email-reg-input" className="input-login-my" type="text" placeholder="Wprowadź mail" name="email" required
                         value={this.state.email} onChange={this.handleEmailChanged.bind(this)}/>
                     <div className="clearfix-my">
                         <div className="input-name-divider-my">
-                            <label for="firstName"><b>Imię:</b></label>
+                            <label htmlFor="firstName"><b>Imię:</b></label>
                             <input id="name-reg-input" className="input-login-my" type="text" placeholder="Wprowadź imię" name="firstName" required
                                 value={this.state.firstName} onChange={this.handleFirstNameChanged.bind(this)}/>
                         </div>
                         <div className="input-name-divider-my">
-                            <label for="lastName"><b>Nazwisko:</b></label>
+                            <label htmlFor="lastName"><b>Nazwisko:</b></label>
                             <input id="surname-reg-input" className="input-login-my" type="text" placeholder="Wprowadź nazwisko" name="lastName" required
                                 value={this.state.lastName} onChange={this.handleLastNameChanged.bind(this)}/>
                         </div>
                     </div>
 
-                    <label for="password"><b>Hasło:</b></label>
+                    <label htmlFor="password"><b>Hasło:</b></label>
                     <input id="pass-input" className="input-login-my" type="password" placeholder="Wprowadź hasło" name="password" required
                         value={this.state.password} onChange={this.handlePasswordChanged.bind(this)}/>
 

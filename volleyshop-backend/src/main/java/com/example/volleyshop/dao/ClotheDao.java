@@ -7,4 +7,6 @@ import java.util.List;
 public interface ClotheDao {
 
     List<Clothe> getClothes();
+
+    List<Clothe> getClothesFromFilters(String filter);
 }

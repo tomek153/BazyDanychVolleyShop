@@ -8,5 +8,7 @@ public interface ShoeDao {
 
     List<Shoe> getShoes();
 
+    List<Shoe> getShoesFromFilters(String filter);
+
     int addShoe(Shoe shoe);
 }

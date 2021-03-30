@@ -22,5 +22,9 @@ public class ShoeService {
         return shoeDao.getShoes();
     }
 
+    public List<Shoe> getShoesFromFilters(String filter) {
+        return shoeDao.getShoesFromFilters(filter);
+    }
+
     public int addShoe(Shoe shoe) { return shoeDao.addShoe(shoe); }
 }

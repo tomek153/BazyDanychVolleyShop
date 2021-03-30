@@ -18,7 +18,11 @@ public class ClotheService {
         this.clotheDao = clotheDao;
     }
 
-    public List<Clothe> getShoes() {
+    public List<Clothe> getClothes() {
         return clotheDao.getClothes();
+    }
+
+    public List<Clothe> getClothesFromFilters(String filter) {
+        return clotheDao.getClothesFromFilters(filter);
     }
 }

@@ -3,15 +3,13 @@ package com.example.volleyshop.api;
 import com.example.volleyshop.model.Clothe;
 import com.example.volleyshop.service.ClotheService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping("api/clothes")
 @RestController
 public class ClotheController {
 
@@ -22,8 +20,15 @@ public class ClotheController {
         this.clotheService = clotheService;
     }
 
-    @GetMapping
-    public List<Clothe> getShoes() {
-        return clotheService.getShoes();
+    @RequestMapping(value = "api/clothes", method = GET)
+    @ResponseBody
+    public List<Clothe> getClothes() {
+        return clotheService.getClothes();
+    }
+
+    @RequestMapping(value = "api/clothes/{filter}", method = GET)
+    @ResponseBody
+    public List<Clothe> getClothes(@PathVariable("filter") String filter) {
+        return clotheService.getClothesFromFilters(filter);
     }
 }

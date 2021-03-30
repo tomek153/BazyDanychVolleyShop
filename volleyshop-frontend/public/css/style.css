@@ -209,7 +209,7 @@ body {
     margin: 0;
     width: 100%;
     background-image: url("../img/background-image.png");
-    background-position: center 150px;
+    background-position: center 50px;
     background-repeat: no-repeat;
     background-size: initial;
     background-attachment: local;
@@ -222,10 +222,10 @@ body {
 .page-under-construction-my {
     margin-bottom: 90px;
     width: 100%;
-    background-color: #fff;
     background-image: url("../img/under.jpg");
     background-position: center;
     background-repeat: no-repeat;
+    padding: 20px;
 }
 h1.header-page-under-construction-my {
     text-align: center;
@@ -504,4 +504,14 @@ nav.nav-add-product a {
 
 .nav-add-product a:hover {
     cursor: pointer;
+}
+
+div.row.row-cols-1.row-cols-md-3 {
+    width: 1160px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav[aria-label=breadcrumb] > ol.breadcrumb {
+    border: 1px solid #dfdfdf;
 }

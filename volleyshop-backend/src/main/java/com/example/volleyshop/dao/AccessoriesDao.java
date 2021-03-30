@@ -7,4 +7,6 @@ import java.util.List;
 public interface AccessoriesDao {
 
     List<Accesories> getAccessories();
+
+    List<Accesories> getAccessoriesFromFilters(String filter);
 }

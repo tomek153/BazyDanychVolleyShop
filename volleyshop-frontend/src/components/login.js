@@ -62,10 +62,10 @@ class Login extends Component {
                     <img src={avatarImage} alt="Avatar" className="avatar-my"/>
                 </div>
                 <div className="login-input-container-my">
-                    <label for="uname"><b>Użytkownik:</b></label>
+                    <label htmlFor="uname"><b>Użytkownik:</b></label>
                     <input id="email-log-input" className="input-login-my" type="text" placeholder="Wprowadź mail" name="uname" required onChange={this.handleEmailChanged.bind(this)}/>
 
-                    <label for="psw"><b>Hasło:</b></label>
+                    <label htmlFor="psw"><b>Hasło:</b></label>
                     <input id="password-log-input" className="input-login-my" type="password" placeholder="Wprowadź hasło" name="psw" required onChange={this.handlePasswordChanged.bind(this)}/>
 
                     <label>

@@ -6,27 +6,26 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS clothes (
-    ID SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    gender CHAR(10) NOT NULL
-        CONSTRAINT CK_clothes_gender CHECK (gender IN ('Meskie', 'Damskie')),
-    brand VARCHAR(60) NOT NULL,
-    description VARCHAR NOT NULL,
-    prize REAL NOT NULL,
-    type VARCHAR(60),
-    image VARCHAR
-);
-
 CREATE TABLE IF NOT EXISTS shoes (
     ID SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     gender CHAR(10) NOT NULL
-        CONSTRAINT CK_shoes_gender CHECK (gender IN ('Meskie', 'Damskie')),
-    brand VARCHAR(60) NOT NULL
-        CONSTRAINT CK_shoes_brand CHECK (brand IN ('Adidas', 'Reebok', 'Nike', 'Mizuno', 'Asics')),
+        CONSTRAINT CK_shoes_gender CHECK (gender IN ('Męskie', 'Damskie', 'Junior')),
+    brand VARCHAR(60) NOT NULL,
     description VARCHAR NOT NULL,
     prize REAL NOT NULL,
+    image VARCHAR
+);
+
+CREATE TABLE IF NOT EXISTS clothes (
+    ID SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    gender CHAR(10) NOT NULL
+        CONSTRAINT CK_clothes_gender CHECK (gender IN ('Męskie', 'Damskie')),
+    brand VARCHAR(60) NOT NULL,
+    description VARCHAR NOT NULL,
+    prize REAL NOT NULL,
+    type VARCHAR(60),
     image VARCHAR
 );
 
@@ -34,11 +33,12 @@ CREATE TABLE IF NOT EXISTS accessories (
     ID SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     gender CHAR(10) NOT NULL
-        CONSTRAINT CK_clothes_gender CHECK (gender IN ('Meskie', 'Damskie', 'Dowolne')),
+        CONSTRAINT CK_clothes_gender CHECK (gender IN ('Męskie', 'Damskie', 'Dowolne')),
     brand VARCHAR(60) NOT NULL,
     description VARCHAR NOT NULL,
     prize REAL NOT NULL,
-    type VARCHAR(60),
+    type VARCHAR(60)
+        CONSTRAINT CK_clothes_type CHECK (type IN ('Piłka', 'Plecak', 'Torba', 'Nakolanniki', 'Rękawki siatkarskie', 'Skarpetki', 'Sprzęt do ćwiczeń', 'Inne')),
     image VARCHAR
 );
 

@@ -19,7 +19,7 @@ function App() {
   return (
     <div style={{margin: "0!important"}}>
       <NavigationRoute />
-      <div class="background-container-my">
+      <div className="background-container-my">
         <ContentRoute />
       </div>
       <Footer />

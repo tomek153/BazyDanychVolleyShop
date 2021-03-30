@@ -19,7 +19,7 @@ class Shoe extends Component {
 
     render() {
         return (
-            <div className="col mb-4" style={{width: '33%', float: 'left',}}>
+            <div className="col mb-4" style={{width: '33%', float: 'left'}}>
                 <div className="card" onClick={() => this.showDetail(this.props.index)}>
                 <div className="card-image-cont" style={{backgroundImage: 'url('+this.props.info.image+')', backgroundSize: '280px'}}></div>
                     <div className="card-body">
