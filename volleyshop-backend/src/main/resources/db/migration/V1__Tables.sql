@@ -1,59 +1,80 @@
+CREATE TABLE IF NOT EXISTS brands (
+    brand VARCHAR NOT NULL
+        CONSTRAINT brands_pkey
+            PRIMARY KEY
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    category VARCHAR NOT NULL
+        CONSTRAINT categories_pkey
+            PRIMARY KEY
+);
+CREATE TABLE IF NOT EXISTS types (
+    type VARCHAR NOT NULL
+        CONSTRAINT types_pkey
+            PRIMARY KEY,
+    category VARCHAR NOT NULL,
+    FOREIGN KEY (category) REFERENCES categories(category) on update cascade on delete cascade
+);
+
 CREATE TABLE IF NOT EXISTS users (
     ID UUID PRIMARY KEY NOT NULL,
-    firstName VARCHAR(45) NOT NULL,
-    lastName VARCHAR(45) NOT NULL,
-    email VARCHAR(60) NOT NULL,
+    firstName VARCHAR NOT NULL,
+    lastName VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
     password VARCHAR NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS shoes (
     ID SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    gender CHAR(10) NOT NULL
+    name VARCHAR NOT NULL,
+    gender VARCHAR NOT NULL
         CONSTRAINT CK_shoes_gender CHECK (gender IN ('Męskie', 'Damskie', 'Junior')),
-    brand VARCHAR(60) NOT NULL,
+    brand VARCHAR NOT NULL,
     description VARCHAR NOT NULL,
     prize REAL NOT NULL,
-    image VARCHAR
+    image VARCHAR,
+    FOREIGN KEY (brand) REFERENCES brands(brand) on update cascade on delete cascade
 );
 
 CREATE TABLE IF NOT EXISTS clothes (
     ID SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    gender CHAR(10) NOT NULL
+    name VARCHAR NOT NULL,
+    gender VARCHAR NOT NULL
         CONSTRAINT CK_clothes_gender CHECK (gender IN ('Męskie', 'Damskie')),
-    brand VARCHAR(60) NOT NULL,
+    brand VARCHAR NOT NULL,
     description VARCHAR NOT NULL,
     prize REAL NOT NULL,
-    type VARCHAR(60),
-    image VARCHAR
+    type VARCHAR,
+    image VARCHAR,
+    FOREIGN KEY (brand) REFERENCES brands(brand) on update cascade on delete cascade,
+    FOREIGN KEY (type) REFERENCES types(type) on update cascade on delete cascade
 );
 
 CREATE TABLE IF NOT EXISTS accessories (
     ID SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    gender CHAR(10) NOT NULL
+    name VARCHAR NOT NULL,
+    gender VARCHAR NOT NULL
         CONSTRAINT CK_clothes_gender CHECK (gender IN ('Męskie', 'Damskie', 'Dowolne')),
-    brand VARCHAR(60) NOT NULL,
+    brand VARCHAR NOT NULL,
     description VARCHAR NOT NULL,
     prize REAL NOT NULL,
-    type VARCHAR(60)
-        CONSTRAINT CK_clothes_type CHECK (type IN ('Piłka', 'Plecak', 'Torba', 'Nakolanniki', 'Rękawki siatkarskie', 'Skarpetki', 'Sprzęt do ćwiczeń', 'Inne')),
-    image VARCHAR
+    type VARCHAR,
+    image VARCHAR,
+    FOREIGN KEY (brand) REFERENCES brands(brand) on update cascade on delete cascade,
+    FOREIGN KEY (type) REFERENCES types(type) on update cascade on delete cascade
 );
 
 CREATE TABLE IF NOT EXISTS supplements (
     ID SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    brand VARCHAR(60) NOT NULL,
+    name VARCHAR NOT NULL,
+    brand VARCHAR NOT NULL,
     description VARCHAR NOT NULL,
     prize REAL NOT NULL,
-    type VARCHAR(60),
-    image VARCHAR
-);
-
-CREATE TABLE IF NOT EXISTS brands (
-    brand VARCHAR(60) NOT NULL
+    type VARCHAR,
+    image VARCHAR,
+    FOREIGN KEY (brand) REFERENCES brands(brand) on update cascade on delete cascade,
+    FOREIGN KEY (type) REFERENCES types(type) on update cascade on delete cascade
 );
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
