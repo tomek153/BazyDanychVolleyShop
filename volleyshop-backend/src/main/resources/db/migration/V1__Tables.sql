@@ -77,5 +77,51 @@ CREATE TABLE IF NOT EXISTS supplements (
     FOREIGN KEY (type) REFERENCES types(type) on update cascade on delete cascade
 );
 
+CREATE TABLE IF NOT EXISTS users_logs(
+    firstName VARCHAR NOT NULL,
+    lastName  VARCHAR NOT NULL,
+    email     VARCHAR NOT NULL,
+    password  VARCHAR NOT NULL,
+    date TIMESTAMP NOT NULL
+);
+CREATE TABLE IF NOT EXISTS shoes_logs(
+    name VARCHAR NOT NULL,
+    gender VARCHAR NOT NULL,
+    brand VARCHAR NOT NULL,
+    description VARCHAR NOT NULL,
+    prize REAL NOT NULL,
+    image VARCHAR,
+    date TIMESTAMP NOT NULL
+);
+CREATE TABLE IF NOT EXISTS clothes_logs(
+    name VARCHAR NOT NULL,
+    gender VARCHAR NOT NULL,
+    brand VARCHAR NOT NULL,
+    description VARCHAR NOT NULL,
+    prize REAL NOT NULL,
+    type VARCHAR,
+    image VARCHAR,
+    date TIMESTAMP NOT NULL
+);
+CREATE TABLE IF NOT EXISTS accessories_logs(
+    name VARCHAR NOT NULL,
+    gender VARCHAR NOT NULL,
+    brand VARCHAR NOT NULL,
+    description VARCHAR NOT NULL,
+    prize REAL NOT NULL,
+    type VARCHAR,
+    image VARCHAR,
+    date TIMESTAMP NOT NULL
+);
+CREATE TABLE IF NOT EXISTS suplements_logs(
+    name VARCHAR NOT NULL,
+    brand VARCHAR NOT NULL,
+    description VARCHAR NOT NULL,
+    prize REAL NOT NULL,
+    type VARCHAR,
+    image VARCHAR,
+    date TIMESTAMP NOT NULL
+);
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
