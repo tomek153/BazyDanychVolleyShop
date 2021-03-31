@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import superagent from 'superagent';
 
 
 class AddShoe extends Component {
@@ -13,7 +14,7 @@ class AddShoe extends Component {
             brand: "",
             description: "",
             prize: "",
-            gender: "Meskie",
+            gender: "",
             image: ""
         }
     }
@@ -45,11 +46,10 @@ class AddShoe extends Component {
 
         let inputLength = event.target.value.length;
         let message = document.getElementById("image-link-alert-description");
-        let messageToShort = '<sub>min 20 znaków</sub>';
+        let messageToShort = '<sub>min 10 znaków</sub>';
         let messageToLong = '<sub>max 700 znaków</sub>';
-        console.log(inputLength);
 
-        this.checkMessageState(20, 700, inputLength, messageToShort, messageToLong, message);
+        this.checkMessageState(10, 700, inputLength, messageToShort, messageToLong, message);
     }
     
     handlePrizeChanged(event) {
@@ -83,14 +83,19 @@ class AddShoe extends Component {
             event.target.value = value;
             console.log(this.state.prize);
         }
+
+    }
+    showLog() {
+        console.log(this.state);
     }
 
     handleGenderChanged(event) {
-        this.setState({gender: event.target.value});
+        this.state.gender = event.target.value;
     }
 
     handleImageChanged(event) {
-        this.setState({image: event.target.value});
+        this.state.image = event.target.value;
+        this.showLog();
     }
 
     checkMessageState(from, to, length, messageShort, messageLong, element) {
@@ -103,6 +108,28 @@ class AddShoe extends Component {
         } else {
             element.style.display = "none";
         }
+    }
+
+    addShoe(event) {
+        event.preventDefault();
+        this.state.prize = parseFloat(this.state.prize);
+        superagent
+            .post('http://localhost:8080/api/shoes')
+            .send(this.state)
+            .end((err, res) => {
+                if(err) {
+                    var response = JSON.parse(res.text);
+                    if (response.message == "Produkt istnieje")
+                        alert("Produkt istnieje!");
+                    else
+                        alert("Podano niepoprawne dane!");
+                } else {
+                    alert("Dodano produkt!");
+                    window.location.replace('http://localhost:3000');
+                }
+            }
+        );
+        // this.clearField();
     }
 
     render() {
@@ -138,6 +165,7 @@ class AddShoe extends Component {
                         <Form.Group as={Col} controlId="formGridGender">
                             <Form.Label>Rodzaj</Form.Label>
                             <Form.Control as="select" required onChange={this.handleGenderChanged.bind(this)}>
+                                <option></option>
                                 <option>Męskie</option>
                                 <option>Damskie</option>
                                 <option>Junior</option>
@@ -152,7 +180,7 @@ class AddShoe extends Component {
                     </Form.Group>
                     <br/>
 
-                    <Button variant="primary" type="submit" disabled>
+                    <Button variant="primary" type="submit" onClick={this.addShoe.bind(this)}>
                         Dodaj produkt
                     </Button>
                 </Form>
