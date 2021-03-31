@@ -13,7 +13,6 @@ public class Accesories {
     private final String brand;
     @NotBlank
     private final String description;
-    @NotBlank
     private final double prize;
     @NotBlank
     private final String type;
