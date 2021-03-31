@@ -22,29 +22,16 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
 
     @Override
     public int addUser(UUID id, User user) {
-        final String sqlFirst = "SELECT * FROM users WHERE email = '"+user.getEmail()+"'";
+        final String sqlFirst = "SELECT add_user('"
+                +user.getFirstName()+"', '"
+                +user.getLastName()+"', '"
+                +user.getEmail()+"', '"
+                +user.getPassword()+"')";
 
-        List<User> listFind = jdbcTemplate.query(sqlFirst, (resultSet, i) -> {
-            return new User(
-                    UUID.fromString(resultSet.getString("id")),
-                    resultSet.getString("firstName"),
-                    resultSet.getString("lastName"),
-                    resultSet.getString("email"),
-                    resultSet.getString("password")
-            );
-        });
+        Integer result = jdbcTemplate.queryForObject(sqlFirst, Integer.class);
 
-        if (listFind.isEmpty()) {
-            final String sqlSecond = "INSERT INTO users (id, firstname, lastname, email, password) " +
-                    "VALUES (uuid_generate_v4(), " +
-                    "'"+user.getFirstName()+"', " +
-                    "'"+user.getLastName()+"', " +
-                    "'"+user.getEmail()+"', " +
-                    "md5('"+user.getPassword()+"'))";
-            jdbcTemplate.execute(sqlSecond);
-            return 1;
-        } else
-            return 0;
+        if (result == 0) return 1;
+        else return 0;
     }
 
     @Override
