@@ -22,13 +22,13 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
 
     @Override
     public int addUser(UUID id, User user) {
-        final String sqlFirst = "SELECT add_user('"
+        final String sql = "SELECT add_user('"
                 +user.getFirstName()+"', '"
                 +user.getLastName()+"', '"
                 +user.getEmail()+"', '"
                 +user.getPassword()+"')";
 
-        Integer result = jdbcTemplate.queryForObject(sqlFirst, Integer.class);
+        Integer result = jdbcTemplate.queryForObject(sql, Integer.class);
 
         if (result == 0) return 1;
         else return 0;
@@ -36,38 +36,69 @@ public class UserDataAccessService implements UserDao, ShoeDao, ClotheDao, Acces
 
     @Override
     public int addShoe(Shoe shoe) {
-        final String sqlFirst = "SELECT name, gender, brand, description, prize, image FROM shoes WHERE name = '"+shoe.getName()+"' OR image = '"+shoe.getImage()+"'";
+        final String sql = "SELECT add_shoe('"
+                +shoe.getName()+"', '"
+                +shoe.getGender()+"', '"
+                +shoe.getBrand()+"', '"
+                +shoe.getDescription()+"', "
+                +shoe.getPrize()+", '"
+                +shoe.getImage()+"')";
 
-        List<Shoe> listFind = jdbcTemplate.query(sqlFirst, (resultSet, i) -> {
-            return new Shoe(
-                    resultSet.getString("name"),
-                    resultSet.getString("gender"),
-                    resultSet.getString("brand"),
-                    resultSet.getString("description"),
-                    resultSet.getDouble("prize")+"",
-                    resultSet.getString("image")
-            );
-        });
+        Integer result = jdbcTemplate.queryForObject(sql, Integer.class);
 
-        if (listFind.isEmpty()) {
-            final String sqlSecond = "INSERT INTO shoes (name, gender, brand, description, prize, image) VALUES(" +
-                    "'"+shoe.getName()+"', " +
-                    "'"+shoe.getGender()+"', " +
-                    "'"+shoe.getBrand()+"', " +
-                    "'"+shoe.getDescription()+"', " +
-                    "'"+shoe.getPrize()+"', " +
-                    "'"+shoe.getImage()+"')"
-                    ;
-            try {
-                jdbcTemplate.execute(sqlSecond);
-                return 1;
-            } catch(Exception e) {
-                e.printStackTrace();
-                System.out.println(e.getMessage());
-                return 0;
-            }
-        } else
-            return 0;
+        if (result == 0) return 1;
+        else return 0;
+    }
+
+    @Override
+    public int addClothe(Clothe clothe) {
+        final String sql = "SELECT add_clothe('"
+                +clothe.getName()+"', '"
+                +clothe.getGender()+"', '"
+                +clothe.getBrand()+"', '"
+                +clothe.getDescription()+"', "
+                +clothe.getPrize()+", '"
+                +clothe.getType()+"', '"
+                +clothe.getImage()+"')";
+
+        Integer result = jdbcTemplate.queryForObject(sql, Integer.class);
+
+        if (result == 0) return 1;
+        else return 0;
+    }
+
+    @Override
+    public int addAccessorie(Accesories accesories) {
+        final String sql = "SELECT add_accessorie('"
+                +accesories.getName()+"', '"
+                +accesories.getGender()+"', '"
+                +accesories.getBrand()+"', '"
+                +accesories.getDescription()+"', "
+                +accesories.getPrize()+", '"
+                +accesories.getType()+"', '"
+                +accesories.getImage()+"')";
+
+        Integer result = jdbcTemplate.queryForObject(sql, Integer.class);
+
+        if (result == 0) return 1;
+        else return 0;
+    }
+
+    @Override
+    public int addSupplement(Supplements supplements) {
+        System.out.println("i'm here");
+        final String sql = "SELECT add_supplement('"
+                +supplements.getName()+"', '"
+                +supplements.getBrand()+"', '"
+                +supplements.getDescription()+"', "
+                +supplements.getPrize()+", '"
+                +supplements.getType()+"', '"
+                +supplements.getImage()+"')";
+
+        Integer result = jdbcTemplate.queryForObject(sql, Integer.class);
+
+        if (result == 0) return 1;
+        else return 0;
     }
 
     @Override

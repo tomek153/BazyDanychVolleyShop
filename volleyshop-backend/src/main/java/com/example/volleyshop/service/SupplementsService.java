@@ -1,6 +1,7 @@
 package com.example.volleyshop.service;
 
 import com.example.volleyshop.dao.SupplementsDao;
+import com.example.volleyshop.model.Clothe;
 import com.example.volleyshop.model.Supplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,4 +22,6 @@ public class SupplementsService {
     public List<Supplements> getSupplements() {
         return supplementsDao.getSupplements();
     }
+
+    public int addSupplement(Supplements supplements) { return supplementsDao.addSupplement(supplements); }
 }

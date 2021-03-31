@@ -2,6 +2,7 @@ package com.example.volleyshop.service;
 
 import com.example.volleyshop.dao.AccessoriesDao;
 import com.example.volleyshop.model.Accesories;
+import com.example.volleyshop.model.Clothe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -25,4 +26,6 @@ public class AccessoriesService {
     public List<Accesories> getAccessoriesFromFilters(String filter) {
         return accessoriesDao.getAccessoriesFromFilters(filter);
     }
+
+    public int addAccessorie(Accesories accesories) { return accessoriesDao.addAccessorie(accesories); }
 }
